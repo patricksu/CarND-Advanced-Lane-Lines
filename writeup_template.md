@@ -21,9 +21,10 @@ The goals / steps of this project are the following:
 [image1]: ./examples/undistortion_demo_peng.png "Undistorted"
 [image2]: ./examples/undistortion_test1_before_after.png "Road Transformed"
 [image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/perspective_transformed_before_after.png "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image4]: ./examples/perspective_transformed_before_after.png "Warp calibration"
+[image5]: ./examples/perspective_transformed_before_after_test3.png "Warp example"
+[image6]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image7]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
 
@@ -69,31 +70,25 @@ I used a combination of color and gradient thresholds to generate a binary image
 The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
 
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+src = np.float32([[203, 720],[1127,720], [700, 460], [582, 460]])
+dst = np.float32([[320, 718],[960,718], [960, 0], [320, 0]])
 ```
 
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 203, 720      | 320, 718      | 
+| 1127, 720     | 960, 718      |
+| 700, 460      | 960, 0        |
+| 582, 460      | 320, 0        |
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
-
+The perspective transformation is shown in the image below.
 ![alt text][image4]
 
+I applied the transformation to another test image to verify that the lines appear parallel in the warped image.
+
+![alt text][image5]
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
