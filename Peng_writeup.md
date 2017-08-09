@@ -110,6 +110,7 @@ I implemented this step in lines 13 through 34 in my code in `src/pipeline1.py` 
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
+I used a moving average method to smooth the fitted lines and curvatures, especially when the new line is quite different from the historical ones (5 good lines in the past). This tech helps a lot since in shadow or white road area, very few lane points are detected and the fitted lines are way off. 
 Here's a [link to my video result](./my_video.mp4)
 
 ---
