@@ -24,8 +24,8 @@ The goals / steps of this project are the following:
 [image4]: ./examples/perspective_transformed_before_after.png "Warp calibration"
 [image5]: ./examples/perspective_transformed_before_after_test3.png "Warp example"
 [image6]: ./examples/color_fit_lines_box.png "Fit Visual"
-[image7]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image7]: ./examples/drawback_demo.png "Output"
+[video1]: ./frames1.2.mp4 "Video"
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -96,13 +96,13 @@ In line 1 5and 16 of file `src/cal_curvature.py`, I used the detected left lane
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in lines 15 through 19 in my code in `src/cal_curvature.py`. Using the formula given in the lecture, I calculated the radius in pixels and thenconver them to meters. 
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in lines 13 through 34 in my code in `src/pipeline1.py` in the function `pipeline1()`.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image7]
 
 ---
 
@@ -110,7 +110,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./frames.1.2.mp4)
 
 ---
 
