@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/undistortion_demo_peng.png "Undistorted"
 [image2]: ./examples/undistortion_test1_before_after.png "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
+[image3]: ./examples/binary_thresholded_test1_before_after.png "Binary thresholded Example"
 [image4]: ./examples/perspective_transformed_before_after.png "Warp calibration"
 [image5]: ./examples/perspective_transformed_before_after_test3.png "Warp example"
 [image6]: ./examples/color_fit_lines.jpg "Fit Visual"
