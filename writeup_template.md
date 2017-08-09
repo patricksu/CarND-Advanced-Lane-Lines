@@ -110,7 +110,7 @@ I implemented this step in lines 13 through 34 in my code in `src/pipeline1.py` 
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./frames.1.2.mp4)
+Here's a [link to my video result](./my_video.mp4)
 
 ---
 
@@ -118,4 +118,6 @@ Here's a [link to my video result](./frames.1.2.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+1) Sometimes very few lane points are detected and the fitted lines are way off. I tuned the Sobel and color thresholds to get as much points as possible, but in shadow or white road conditions, the problem still exists. I used a smoothing technique to make it work. I.e. I keep track of the previous 5 frames' fitted lines, and if the new lines are not parallel, I simply use the historical lines instead of the new one. 
+This pipeline will fail in urban traffic conditions, or in road segments when lane lines fade.
+If I will pursue this project further, I am gonna combine neural network with this technique for better results. 
