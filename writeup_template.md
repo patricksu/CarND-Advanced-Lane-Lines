@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image3]: ./examples/binary_thresholded_test1_before_after.png "Binary thresholded Example"
 [image4]: ./examples/perspective_transformed_before_after.png "Warp calibration"
 [image5]: ./examples/perspective_transformed_before_after_test3.png "Warp example"
-[image6]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image6]: ./examples/color_fit_lines_box.png "Fit Visual"
 [image7]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
@@ -67,21 +67,20 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
-
+The code for my perspective transform uses cv2.warpPerspective(), which appears in lines 16 in the file `src/pipeline1.py`.I chose the hardcode the source and destination points in the following manner (in the file `src/perspective.py`):
 ```python
-src = np.float32([[203, 720],[1127,720], [700, 460], [582, 460]])
-dst = np.float32([[320, 718],[960,718], [960, 0], [320, 0]])
+src = np.float32([[200, 720],[1130,720], [702, 460], [578, 460]])
+dst = np.float32([[320, 720],[960,720], [960, 0], [320, 0]])
 ```
 
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 203, 720      | 320, 718      | 
-| 1127, 720     | 960, 718      |
-| 700, 460      | 960, 0        |
-| 582, 460      | 320, 0        |
+| 200, 720      | 320, 720      | 
+| 1130, 720     | 960, 720      |
+| 702, 460      | 960, 0        |
+| 578, 460      | 320, 0        |
 
 The perspective transformation is shown in the image below.
 ![alt text][image4]
@@ -89,11 +88,11 @@ The perspective transformation is shown in the image below.
 I applied the transformation to another test image to verify that the lines appear parallel in the warped image.
 
 ![alt text][image5]
+
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+In line 1 5and 16 of file `src/cal_curvature.py`, I used the detected left lane points and right lane points to fit a 2nd-order polynomial to find the lane lines. The left and right lane points are detected using the sliding window method as in the lectures,code lines 39 to 60 in the file `src/new_lane_line_search.py`.
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
-
-![alt text][image5]
+![alt text][image6]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
