@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 [image5]: ./examples/perspective_transformed_before_after_test3.png "Warp example"
 [image6]: ./examples/color_fit_lines_box.png "Fit Visual"
 [image7]: ./examples/drawback_demo.png "Output"
-[video1]: ./frames1.2.mp4 "Video"
+[video1]: ./my_video.mp4 "Video"
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
